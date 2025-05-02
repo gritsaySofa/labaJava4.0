@@ -2,6 +2,10 @@ package org.example;
 import java.util.Date;
 import java.util.Objects;
 
+
+/**
+ * Класс, представляющий основную информацию работника.
+ */
 public class Worker {
     private final int id;
     private final String name;
@@ -10,6 +14,17 @@ public class Worker {
     private final double salary;
     private final Date birthDate;
 
+
+    /**
+     * Создает нового работника.
+     *
+     * @param id идентификатор работника
+     * @param name имя работника
+     * @param gender пол работника
+     * @param department отдел работника
+     * @param salary зарплата работника
+     * @param birthDate дата рождения работника
+     */
     public Worker(int id, String name, String gender, DepartmentID department, double salary, Date birthDate) {
         this.id = id;
         this.name = name;
@@ -18,11 +33,23 @@ public class Worker {
         this.salary = salary;
         this.birthDate = birthDate;
     }
+
+    /** @return идентификатор работника */
     public int getId() { return id; }
+
+    /** @return имя работника */
     public String getName() { return name; }
+
+    /** @return пол работника */
     public String getGender() { return gender; }
+
+    /** @return отдел работника */
     public DepartmentID getDepartment() { return department; }
+
+    /** @return зарплата работника */
     public double getSalary() { return salary; }
+
+    /** @return дата рождения работника */
     public Date getBirthDate() { return birthDate; }
 
     @Override

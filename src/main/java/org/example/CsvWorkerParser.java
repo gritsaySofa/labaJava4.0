@@ -11,14 +11,31 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
+
+/**
+ * Для преобразования данных из CSV-файла в список объектов Worker.
+ */
 public class CsvWorkerParser {
     private static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("dd.MM.yyyy");
     private final char delimiter;
 
+    /**
+     * Создает парсер CSV с указанным разделителем.
+     *
+     * @param delimiter разделитель в CSV-файле
+     */
     public CsvWorkerParser(char delimiter) {
         this.delimiter = delimiter;
     }
 
+    /**
+     * Парсит CSV-файл и возвращает список работников.
+     * @param csvFile имя CSV-файла в ресурсах
+     * @return список объектов Worker
+     * @throws IOException если возникла ошибка чтения файла
+     * @throws CsvException если возникла ошибка парсинга CSV
+     * @throws ParseException если возникла ошибка парсинга даты
+     */
     public List<Worker> parseWorkersFromCSV(String csvFile) throws IOException, CsvException, ParseException {
         List<Worker> workers = new ArrayList<>();
         Map<String, DepartmentID> departments = new HashMap<>();
@@ -46,6 +63,14 @@ public class CsvWorkerParser {
         return workers;
     }
 
+    /**
+     * Преобразует строку CSV в объект Worker.
+     * @param csvLine массив значений из строки CSV
+     * @param departments словарь отделов для избежания дублирования
+     * @return объект Worker
+     * @throws ParseException если возникла ошибка парсинга даты
+     * @throws IllegalArgumentException если строка имеет неверный формат
+     */
     private Worker parseWorker(String[] csvLine, Map<String, DepartmentID> departments) throws ParseException {
         if (csvLine.length < 6) {
             throw new IllegalArgumentException("Invalid CSV line format. Expected 6 columns, got " + csvLine.length);

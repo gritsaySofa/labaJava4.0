@@ -1,20 +1,35 @@
 package org.example;
 import java.util.Objects;
 
+
+/**
+ * Класс, представляющий ID отдела.
+ * Генерирует уникальные ID для каждого отдела.
+ */
 public class DepartmentID {
     private static int nextId = 1;
     private final int id;
     private final String name;
 
+    /**
+     * Создает новый идентификатор отдела.
+     *
+     * @param name название отдела
+     */
     public DepartmentID(String name) {
         this.id = nextId++;
         this.name = name;
     }
 
+    /**
+     * @return числовой идентификатор отдела
+     */
     public int getId() {
         return id;
     }
-
+    /**
+     * @return название отдела
+     */
     public String getName() {
         return name;
     }
