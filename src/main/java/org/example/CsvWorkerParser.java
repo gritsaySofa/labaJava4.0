@@ -71,7 +71,7 @@ public class CsvWorkerParser {
      * @throws ParseException если возникла ошибка парсинга даты
      * @throws IllegalArgumentException если строка имеет неверный формат
      */
-    private Worker parseWorker(String[] csvLine, Map<String, DepartmentID> departments) throws ParseException {
+    public Worker parseWorker(String[] csvLine, Map<String, DepartmentID> departments) throws ParseException {
         if (csvLine.length < 6) {
             throw new IllegalArgumentException("Invalid CSV line format. Expected 6 columns, got " + csvLine.length);
         }

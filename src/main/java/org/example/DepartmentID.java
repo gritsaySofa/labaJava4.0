@@ -20,6 +20,12 @@ public class DepartmentID {
         this.id = nextId++;
         this.name = name;
     }
+    /**
+     * Сбрасывает счётчик ID
+     */
+    public static void resetCounter() {
+        nextId = 1;
+    }
 
     /**
      * @return числовой идентификатор отдела
